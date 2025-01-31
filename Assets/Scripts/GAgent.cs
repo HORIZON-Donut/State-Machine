@@ -22,6 +22,33 @@ public abstract class GAgent : MonoBehaviour
     public WorldStates agentBeliefs;
 
     public bool running = false;
+
+    public GAction()
+    {
+        preconditions = new Dictionary<string, int>();
+        effects = new Dictionary<string, int>();
+    }
+
+    public void Awake()
+    {
+        agent = this.gameObject.GetComponent<NavMeshAgent>();
+
+        if(preCondition != null )
+        {
+            foreach( WorldState w in preCondition )
+            {
+                preconditions.Add(w.key, w.value);
+            }
+        }
+
+        if( afterEffect != null )
+        {
+            foreach( WorldState w in afterEffect )
+            {
+                effects.Add(w.key, w.value);
+            }
+        }
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
