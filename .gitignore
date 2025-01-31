@@ -37,6 +37,7 @@ $RECYCLE.BIN/
 
 #Visual Studio
 .vs/
+.vsconfig
 *.csproj
 *.user
 *.suo
