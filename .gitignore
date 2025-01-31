@@ -1,0 +1,68 @@
+# ===== Unity specific =====
+[Ll]ibrary/
+[Tt]emp/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+Memorycaptures/
+UserSettings/
+
+# Ignore generated data from Unity hub
+*.pidb
+*.sln
+*.userprefs
+*.csproj
+*.unityproj
+*.asmdef
+
+#Ignore asset store tools
+Assets/AssetStoreTools*
+
+# ===== OS specific =====
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumds.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+# ===== IDE specific =====
+# JetBrains Rider
+.idea/
+*.idea/
+
+#Visual Studio
+.vs/
+*.csproj
+*.user
+*.suo
+*.sln
+*.sln.docstates
+
+#VS code
+.vscode/
+*.code-workspace
+
+# ===== Version Control =====
+#.git/
+#*.git/
+
+# ===== Other =====
+# Crash reports
+*.cash
+*.stacktrace
+
+# Build artifacts
+*.apk
+*.aab
+*.exe
+*.app
+*.zip
+*.tar.gz
+
+# Exclude Unity Play Mode Test Results
+Assets/StreamingAssets/UnityPlayModeTestResults.xml
