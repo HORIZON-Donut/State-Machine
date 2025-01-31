@@ -47,7 +47,7 @@ public class WorldStates
 
     public void SetState(string key, int value)
     {
-        if(states.ContainsKey(key)
+        if(states.ContainsKey(key))
             states[key] = value;
         else
             states.Add(key, value);

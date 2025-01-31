@@ -17,7 +17,7 @@ public sealed class GWorld
 
     public static GWorld Instance
     {
-        get { return instance};
+        get { return instance; }
     }
 
     public WorldState GetWorld()
