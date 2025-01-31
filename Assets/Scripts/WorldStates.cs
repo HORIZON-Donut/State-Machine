@@ -21,4 +21,19 @@ public class WorldStates
     {
         return states.ContainsKey(key);
     }
+
+    void AddState(string key, int value)
+    {
+        states.Add(key, value);
+    }
+
+    public void ModifyState(string key, int value)
+    {
+        if (states.ContainsKey(key))
+        {
+            states[key] += value;
+            if (states[key] <= 0)
+                RemoveState(key);
+        }
+    }
 }
