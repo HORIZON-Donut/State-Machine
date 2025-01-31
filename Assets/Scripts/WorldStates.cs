@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
@@ -7,17 +8,17 @@ public class WorldState
     public int value;
 }
 
-public class WorldStates : MonoBehaviour
+public class WorldStates
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public Dictionary<string, int> states;
+
+    public WorldStates()
     {
-        
+        states = new Dictionary<string, int>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public bool HasState(string key)
     {
-        
+        return states.ContainsKey(key);
     }
 }
