@@ -49,6 +49,11 @@ public abstract class GAction : MonoBehaviour
             }
         }
     }
+
+    public bool IsAchievable()
+    {
+        return true;
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
