@@ -54,6 +54,19 @@ public abstract class GAction : MonoBehaviour
     {
         return true;
     }
+
+    public bool IsAchievableGiven(Dictionary<string, int> conditions)
+    {
+        foreach(KeyValuePair<string, int> p in preconditions)
+        {
+            if(!conditions.ContainsKey(p.Key))
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
