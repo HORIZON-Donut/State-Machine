@@ -1,4 +1,12 @@
 using UnityEngine;
+using System.Linq;
+using System.Collections.Generic;
+
+public class SubGoal
+{
+    public Dictionary<string, int> sgoals;
+    public bool remove;
+}
 
 public class GAgent : MonoBehaviour
 {
