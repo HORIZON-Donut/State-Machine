@@ -88,7 +88,6 @@ public class GPlanner
 
         return true;
     }
-
     private List<GAction> ActionSubset(List<GAction> actions, GAction removeMe)
     {
         List<GAction> subset = new List<GAction>();
@@ -126,7 +125,7 @@ public class GPlanner
                 }
                 else
                 {
-                    List<GAction> subset = new ActionSubset(usableAction, action);
+                    List<GAction> subset = ActionSubset(usableAction, action);
                     bool found = BuildGraph(parent, leaves, subset, goal);
                     if(found)
                         foundPath = true;
@@ -136,5 +135,4 @@ public class GPlanner
 
         return foundPath;
     }
-
 }
