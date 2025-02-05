@@ -888,7 +888,7 @@ PrefabInstance:
     - target: {fileID: 2763596818918298846, guid: d36c43225f9391e4c8810c98eb7ef85e, type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 1000317771}
+      objectReference: {fileID: 0}
     - target: {fileID: 2763596818918298846, guid: d36c43225f9391e4c8810c98eb7ef85e, type: 3}
       propertyPath: afterEffect.Array.size
       value: 1
