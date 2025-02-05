@@ -78,6 +78,17 @@ public class GPlanner
         return queue;
     }
 
+    private bool GoalAchieved(Dictionary<string, int> goal, Dictionary<string, int> state)
+    {
+        foreach(KeyValuePair<string, int> g in goal)
+        {
+            if (!state.ContainsKey(g.Key))
+                return false;
+        }
+
+        return true;
+    }
+
     private bool BuildGraph(Node parent, List<Node> leaves, List<GAction> usableAction, Dictionary<string, int> goal)
     {
         bool foundPath = false;
