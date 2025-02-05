@@ -38,6 +38,44 @@ public class GPlanner
             Debug.Log("NO PLAN");
             return null;
         }
+
+        Node cheapest = null;
+        foreach(Node leaf in leaves)
+        {
+            if(cheapest == null)
+                cheapest = leaf;
+
+            else
+            {
+                if (cheapest.cost < leaf.cost)
+                    cheapest = leaf;
+            }
+        }
+
+        List<GAction> result = new List<GAction>();
+        Node n = cheapest;
+        while (n != null)
+        {
+            if (n.action != null)
+            {
+                result.Insert(0, n.action);
+            }
+            n = n.parent;
+        }
+
+        Queue<GAction> queue = new Queue<GAction>();
+        foreach(GAction a in result)
+        {
+            queue.Enqueue(a);
+        }
+
+        Debug.Log("The plan is: ");
+        foreach(GAction a in queue)
+        {
+            Debug.Log(a.actionName);
+        }
+
+        return queue;
     }
 
 }
