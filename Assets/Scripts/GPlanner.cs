@@ -89,6 +89,18 @@ public class GPlanner
         return true;
     }
 
+    private List<GAction> ActionSubset(List<GAction> actions, GAction removeMe)
+    {
+        List<GAction> subset = new List<GAction>();
+        foreach (GAction a in actions)
+        {
+            if (!a.Equals(removeMe))
+                subset.Add(a);
+        }
+
+        return subset;
+    }
+
     private bool BuildGraph(Node parent, List<Node> leaves, List<GAction> usableAction, Dictionary<string, int> goal)
     {
         bool foundPath = false;
