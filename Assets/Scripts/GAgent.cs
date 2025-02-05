@@ -32,8 +32,7 @@ public class GAgent : MonoBehaviour
             actions.Add(act);
     }
 
-    // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         
     }
