@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Linq;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class SubGoal
 {
@@ -24,7 +25,9 @@ public class GAgent : MonoBehaviour
     Queue<GAction> actionQueue;
     public GAction currentAction;
     SubGoal currentGoal;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    bool invoked = false;
+
     void Start()
     {
         GAction[] acts = this.GetComponents<GAction>();
@@ -34,6 +37,18 @@ public class GAgent : MonoBehaviour
 
     void LateUpdate()
     {
+        if(currentAction != null && currentAction.running)
+        {
+            if(currentAction.agent.hasPath && currentAction.agent.remainingDistance < 1f)
+            {
+                if(!invoked)
+                {
+                    Invoke("CompleteAction", currentAction.duration);
+                    invoked = true;
+                }
+            }
+        }
+
         if(planner == null || actionQueue == null)
         {
             planner = new GPlanner();
