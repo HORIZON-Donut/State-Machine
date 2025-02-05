@@ -78,4 +78,9 @@ public class GPlanner
         return queue;
     }
 
+    private bool BuildGraph(Node parent, List<Node> leaves, List<GAction> usableAction, Dictionary<string, int> goal)
+    {
+        //
+    }
+
 }
