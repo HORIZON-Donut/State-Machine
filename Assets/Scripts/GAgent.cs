@@ -17,6 +17,8 @@ public class SubGoal
 
 public class GAgent : MonoBehaviour
 {
+    public List<GAction> action = new List<GAction>();
+    public Dictionary<SubGoal, int> goals = new Dictionary<SubGoal, int>();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
