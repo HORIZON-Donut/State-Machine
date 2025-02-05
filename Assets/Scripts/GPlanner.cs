@@ -80,7 +80,38 @@ public class GPlanner
 
     private bool BuildGraph(Node parent, List<Node> leaves, List<GAction> usableAction, Dictionary<string, int> goal)
     {
-        //
+        bool foundPath = false;
+        foreach(GAction action in usableAction)
+        {
+            if(action.IsAchievableGiven(parent.state))
+            {
+                Dictionary<string, int> currentState = new Dictionary<string, int>(parent.state);
+                foreach(KeyValuePair<string, int> eff in action.effects)
+                {
+                    if(!currentState.ContainsKey(eff.Key))
+                    {
+                        currentState.Add(eff.Key, eff.Value);
+                    }
+                }
+                
+                Node node = new Node(parent, parent.cost + action.cost, currentState, action);
+
+                if (GoalAchieved(goal, currentState))
+                {
+                    leaves.Add(node);
+                    foundPath = true;
+                }
+                else
+                {
+                    List<GAction> subset = new ActionSubset(usableAction, action);
+                    bool found = BuildGraph(parent, leaves, subset, goal);
+                    if(found)
+                        foundPath = true;
+                }
+            }       
+        }
+
+        return foundPath;
     }
 
 }
