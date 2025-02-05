@@ -35,6 +35,13 @@ public class GAgent : MonoBehaviour
             actions.Add(act);
     }
 
+    void CompleteAction()
+    {
+        currentAction.running = false;
+        currentAction.PostPerform();
+        invoked = false;
+    }
+
     void LateUpdate()
     {
         if(currentAction != null && currentAction.running)
@@ -47,6 +54,7 @@ public class GAgent : MonoBehaviour
                     invoked = true;
                 }
             }
+            return;
         }
 
         if(planner == null || actionQueue == null)
