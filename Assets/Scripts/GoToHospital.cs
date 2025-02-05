@@ -1,16 +1,14 @@
 using UnityEngine;
 
-public class GoToHospital : MonoBehaviour
+public class GoToHospital : GAction
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public override bool PrePerform()
     {
-        
+        return true;
     }
 
-    // Update is called once per frame
-    void Update()
+    public override bool PostPerform()
     {
-        
+        return true;
     }
 }
