@@ -28,7 +28,7 @@ public class GAgent : MonoBehaviour
 
     bool invoked = false;
 
-    void Start()
+    public void Start()
     {
         GAction[] acts = this.GetComponents<GAction>();
         foreach (GAction act in acts)
