@@ -2904,6 +2904,7 @@ GameObject:
   - component: {fileID: 7880970886039044016}
   - component: {fileID: 5665958819871148714}
   - component: {fileID: 2763596818918298846}
+  - component: {fileID: 7942957164504729398}
   - component: {fileID: 7625931730822553399}
   m_Layer: 0
   m_Name: Patient
@@ -2954,13 +2955,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aec21a843bb1f64c9314912d523d7a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionName: Action
+  actionName: GoToHospital
+  cost: 1
+  duration: 5
+  target: {fileID: 0}
+  targetTag: Door
+  preCondition: []
+  afterEffect:
+  - key: hasArrived
+    value: 0
+  agent: {fileID: 0}
+  running: 0
+--- !u!114 &7942957164504729398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7881807149238628900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb27e289f764eef43b720936e88c265c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionName: GoToWaitingRoom
   cost: 1
   duration: 0
   target: {fileID: 0}
-  targetTag: 
-  preCondition: []
-  afterEffect: []
+  targetTag: WaitingArea
+  preCondition:
+  - key: hasArrived
+    value: 0
+  afterEffect:
+  - key: isWaiting
+    value: 0
   agent: {fileID: 0}
   running: 0
 --- !u!195 &7625931730822553399
