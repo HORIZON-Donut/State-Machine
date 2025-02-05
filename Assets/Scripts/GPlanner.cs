@@ -19,4 +19,25 @@ public class Node
 }
 
 public class GPlanner
+{
+    public Queue<GAction> plan(List<GAction> actions, Dictionary<string, int> goal, WorldState states)
+    {
+        List<GAction> usableAction = new List<GAction>();
+        foreach (GAction action in actions)
+        {
+            if (action.IsAchievable())
+            { usableAction.Add(action); }
+        }
+
+        List<Node> leaves = new List<Node>();
+        Node Start = new Node(null, 0, GWorld.Instance.GetWorld().GetStates(), null);
+
+        bool suecess = BuildGraph(Start, leaves, usableAction, goal);
+        if(!suecess)
+        {
+            Debug.Log("NO PLAN");
+            return null;
+        }
+    }
+
 }
