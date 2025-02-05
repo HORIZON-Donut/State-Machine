@@ -17,12 +17,19 @@ public class SubGoal
 
 public class GAgent : MonoBehaviour
 {
-    public List<GAction> action = new List<GAction>();
+    public List<GAction> actions = new List<GAction>();
     public Dictionary<SubGoal, int> goals = new Dictionary<SubGoal, int>();
+
+    GPlanner planner;
+    Queue<GAction> actionQueue;
+    public GAction currentAction;
+    SubGoal currentGoal;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        GAction[] acts = this.GetComponents<GAction>();
+        foreach (GAction act in acts)
+            actions.Add(act);
     }
 
     // Update is called once per frame
