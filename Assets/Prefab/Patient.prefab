@@ -2957,7 +2957,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionName: GoToHospital
   cost: 1
-  duration: 5
+  duration: 2
   target: {fileID: 0}
   targetTag: Door
   preCondition: []
